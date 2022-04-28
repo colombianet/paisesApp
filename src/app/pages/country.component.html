@@ -1,0 +1,29 @@
+<div class="separator">
+  <button mat-raised-button (click)="goToHome()"><i class="fa-solid fa-arrow-left-long"></i> Back</button>
+
+  <div class="grid-country separator" *ngIf="country">
+    <img class="imagen mat-elevation-z1" [src]="country.flag" [alt]="country.name">
+
+    <div class="description">
+      <h2>{{ country.name }}</h2>
+
+      <div class="grid-description">
+        <div class="col-1">
+          <p><strong>Native name:</strong> {{ country.nativeName }}</p>
+          <p><strong>Population:</strong> {{ country.population | number }}</p>
+          <p><strong>Region:</strong> {{ country.region }}</p>
+          <p><strong>Sub Region:</strong> {{ country.subregion }}</p>
+          <p><strong>Capital:</strong> {{ country.capital }}</p>
+        </div>
+
+        <div class="col-2">
+          <p><strong>Top level Domain:</strong> {{ country.topLevelDomain }}</p>
+          <p><strong>Currencies:</strong> <span *ngFor="let currency of country.currencies"> {{ currency.name }}</span></p>
+          <p><strong>Languages:</strong> <span *ngFor="let language of country.languages"> {{ language.name }}</span></p>
+        </div>
+      </div>
+
+      <!-- <p><strong>Border countries:</strong> <span *ngFor="let border of country.borders">{{ border }}</span></p> -->
+    </div>
+  </div>
+</div>

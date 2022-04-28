@@ -1,0 +1,30 @@
+<div class="toolbar separator">
+  <mat-form-field appearance="fill">
+    <mat-label class="text-label">Search for a country...</mat-label>
+    <input matInput placeholder="Search for a country" (keyup.enter)="searchCountry( text.value )" #text>
+    <mat-hint class="errorField" *ngIf="error">No hay resultados para tu búsqueda, por favor vuelve a intentarlo!</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label class="text-label">Filter by Region</mat-label>
+    <mat-select>
+      <mat-option (click)="searchByRegion( region )" *ngFor="let region of regions" [value]="region">
+        {{ region | titlecase }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<section class="all separator">
+
+  <mat-card class="card" *ngFor="let country of countries" (click)="searchByCode(country.alpha2Code)">
+    <img mat-card-image [src]="country.flag" [alt]="country.name">
+    <mat-card-content>
+      <mat-card-title>{{ country.name }}</mat-card-title>
+      <p><strong>Population:</strong> {{ country.population | number }}</p>
+      <p><strong>Region:</strong> {{ country.region }}
+      <p><strong>Capital:</strong> {{ country.capital }}
+    </mat-card-content>
+  </mat-card>
+
+</section>

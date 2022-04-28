@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hide {
+  display: none;
+}
+
+.icon {
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .hide {
+    display: inline;
+  }
+
+  .icon {
+    display: none;
+  }
+}
+
+nav span {
+  cursor: pointer;
+}
+
